@@ -1,0 +1,15 @@
+@import url(normalize.css);
+
+.wrapper {
+    max-width: 1000px;
+    margin: 0 auto;
+    background-color: brown;
+    display: flex;
+}
+.book {
+    width: 150px;
+    border: 1px solid black;
+}
+.book img {
+    width: 150px;
+}
