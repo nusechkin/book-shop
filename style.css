@@ -65,7 +65,7 @@ p, h1 {
 .header-logo {
     position: absolute;
     top: 250px;
-    left: 200px;
+    left: 270px;
     background-color: white;
 
 }
@@ -87,6 +87,9 @@ p, h1 {
     justify-content: space-evenly;
 }
 .book {
+    position: relative;
+    /* display: flex;
+    flex-direction: column; */
     width: 200px;
     border-radius: 8px;
     background-color: white;
@@ -95,6 +98,7 @@ p, h1 {
     margin: 10px;
 }
 .book img {
+    height: 300px;
     width: 200px;
     border-radius: 8px 8px 0 0;
 }
@@ -106,13 +110,16 @@ p, h1 {
     color: rgb(45, 45, 45);
 }
 .book-author {
-    padding: 0 4px 4px 4px;
+    padding: 0 4px 40px 4px;
     font-size: 1.4rem;
     font-weight: 300;
     line-height: 1.2;
     color: rgb(131, 131, 131);
 }
 .book-details {
+    width: 192px;
+    position:absolute;
+    bottom: 0px;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
