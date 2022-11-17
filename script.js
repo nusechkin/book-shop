@@ -41,8 +41,10 @@ fetch('./books.json')
     })
     .then(data => {
     let books = data;
+    id = 0;
 
     books.map(book => {
+        id++;
         const bookCard = document.createElement('div');
         const pic = document.createElement('img');
         const title = document.createElement('p');
@@ -56,10 +58,8 @@ fetch('./books.json')
         bookDetails.classList.add('book-details');
         bookDetails.innerHTML = `<div class="more-label"><p>More...</p></div>
                                  <p class="price">${book.price}$</p>
-                                 <button class="button-add-to-cart">BUY</button>`;
-        //price.classList.add('price');
-        //bookDetails.after(price);
-        //bookDetails.innerHTML += "<button class=\"button-add-to-cart\">BUY</button>"
+                                 <button id="add-${id}" class="button-add-to-cart">BUY</button>`;
+
 
         title.innerHTML = book.title;
         author.innerHTML = book.author;
@@ -72,3 +72,30 @@ fetch('./books.json')
 });
 
 body.appendChild(fragment);
+
+window.onload = function() {
+    const addToCartBtn = document.getElementById('add-1');
+    addToCartBtn.addEventListener('click', addToCart, false);
+}
+
+
+function addToCart(event){
+    const myBook = event.target.closest('.book');
+    let copiedBook = myBook.cloneNode(true);
+    const more = copiedBook.lastChild;
+    more.removeChild(more.firstChild);
+    more.removeChild(more.lastChild);
+    more.className = 'incart-book-details';
+    // const copiedBookDetails = document.createElement('div');
+    // copiedBookDetails.classList.add('copied-book-details');
+    // copiedBookDetails.innerHTML = "<p></p>"
+
+    const cart = document.querySelector('.shopping-cart');
+
+    // console.log(cart);
+    cart.append(copiedBook);
+}
+
+
+
+
