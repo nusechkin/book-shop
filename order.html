@@ -8,6 +8,55 @@
     <title>Order form</title>
 </head>
 <body>
-    <!-- <script src="script.js"></script> -->
+    <h2 id="heading">Book Order Form</h2>
+    <form id="bookOrder" action="#">
+        <label for="name">Name</label><br>
+        <input placeholder="Type your name" type="text" name="name" id="name" minlength="4" required="required"><br><br>
+        <label for="surname">Surname</label><br>
+        <input placeholder="Type your surname" type="text" name="surname" id="surname" minlength="5" required="required"><br><br>
+        <label for="delivery">Delivery date</label><br>
+        <input type="date" name="delivery" id="delivery" required="required"><br><br>
+        <label for="street">Street</label><br>
+        <input placeholder="Type your street name" type="text" name="street" id="street" minlength="5" required="required"><br><br>
+        <label for="flat">Flat number</label><br>
+        <input placeholder="Type your flat number" type="number" name="flat" id="flat"><br><br>
+        <fieldset>
+            <legend>Choose the payment type:</legend>
+            <div>
+              <input type="radio" id="cash" name="money" value="cash"
+                     checked>
+              <label for="cash">Cash</label>
+            </div>
+            <div>
+              <input type="radio" id="card" name="money" value="card">
+              <label for="card">Card</label>
+            </div>
+        </fieldset>
+        <fieldset>
+            <legend>Choose 2 gifts:</legend>
+            <div>
+                <input type="checkbox" id="pack" name="pack" checked>
+                <label for="pack">Pack as a gift</label>
+            </div>
+            <div>
+                <input type="checkbox" id="postcard" name="postcard">
+                <label for="postcard">Add postcard</label>
+            </div>
+            <div>
+                <input type="checkbox" id="discount" name="dicount" checked>
+                <label for="discount">Provide 2% discount to the next time</label>
+            </div>
+            <div>
+                <input type="checkbox" id="pen-pencil" name="pen-pencil">
+                <label for="pen-pencil">Branded pen or pencil</label>
+            </div>
+        </fieldset>
+        <button class="button-add-to-cart" onClick="complete()">COMPLETE</button>
+    </form>
+    <script>
+        function complete(){
+            alert("Hello World");
+        }
+    </script>
 </body>
 </html>

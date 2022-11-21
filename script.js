@@ -28,15 +28,16 @@ bookGallery.classList.add('book-gallery');
 shoppingCart.classList.add('shopping-cart');
 
 shoppingCart.innerHTML = '<p id="total_price"></p>';
+shoppingCart.addEventListener("dragover",allowDrop);
+
+function allowDrop(ev) {
+    ev.preventDefault();
+}
+
 confirmOrder.classList.add('button-add-to-cart');
 confirmOrder.innerHTML = "CONFIRM ORDER";
 confirmOrder.addEventListener("click", function() {
-    if (confirm("confirm order: total price = " + totalPrice)) {
-        console.log("you should empty cart and reset total price");
-        flushCart();
-      } else {
-        console.log("do nothing");
-      }
+    window.location.assign("https://nusechkin.github.io/book-shop/order.html");
   });
 
 shoppingCart.append(confirmOrder);
@@ -63,6 +64,7 @@ fetch('./books.json')
         id++;
 
         const bookCard = document.createElement('div');
+        bookCard.setAttribute("draggable","true");
         bookCard.id = id;
         const pic = document.createElement('img');
         const title = document.createElement('p');
@@ -116,6 +118,15 @@ fetch('./books.json')
             // and put it to our function
             addToCart(bookDTO);
           });
+
+        bookCard.addEventListener("dragend",function() {
+            console.log("dragend");
+            var bookDTO = new Object();
+            bookDTO.id = this.id;
+            bookDTO.price = book.price;
+            // and put it to our function
+            addToCart(bookDTO);
+        });
 
         moreButton.addEventListener("click",function() {
             modal.style.display = "block";
